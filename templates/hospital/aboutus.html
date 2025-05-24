@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>About Us</title>
+  <style media="screen">
+    .jumbotron {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    .jumbotron h1 {
+      text-align: center;
+    }
+
+    .alert {
+      margin: 0px;
+    }
+    .high{
+      font-size: 25px;
+      font-weight: bold;
+      color:#333;
+      text-align: left;
+    }
+    .high1{
+      text-align: left;
+    }
+  </style>
+  <title></title>
+</head>
+
+<body>
+  {% include "hospital/navbar.html" %}
+  <br><br>
+  <div class="jumbotron" style="margin-bottom: 0px;margin-top: 0px;">
+    <h1 class="display-4">Hello</h1>
+    <p class="lead">Welcome to our Child Vaccination Management System! We are dedicated to ensuring 
+      the health and well-being of every child by providing an efficient and reliable platform for 
+      tracking vaccinations and delivering timely notifications. Our system is designed to empower administrators, 
+      doctors, and patients with the necessary tools to manage and monitor vaccination schedules effectively.</p>
+    <hr class="my-4">
+  
+      <p class="high"> For Administrators:</p>
+      <p class="high1">
+      As an administrator, you have complete control over the system. You can manage user accounts, 
+      add and update vaccination schedules, and generate reports on vaccination coverage. 
+      Our intuitive interface allows you to streamline administrative tasks and ensure smooth operation of the vaccination program.</p>
+      <br>
+      <p class="high"> For Doctors:</p>
+     <p class="high1">
+      Our system enables doctors to access detailed vaccination records of their patients.
+       With just a few clicks, doctors can view the vaccination history, schedule upcoming vaccinations,
+        and set reminders for patients. This helps doctors provide personalized care and ensure that every child receives
+         the required vaccinations at the right time.</p>
+      <p class="high"> For Patients:</p>
+      <br>
+      <p class="high1">
+      As a patient or parent, you can easily track your child's vaccination schedule
+       through our user-friendly interface. Upon logging in, you will have access to a 
+       personalized dashboard that displays the upcoming vaccinations, their due dates, 
+       and any associated reminders. Our system sends timely notifications to keep you 
+       informed about upcoming vaccinations, ensuring that your child receives the necessary immunizations on schedule.</p>
+      <br>
+      <p class="high1">
+      With our Child Vaccination Management System, we aim to simplify the vaccination 
+      process and enhance its effectiveness. By leveraging technology, we strive to minimize the chances 
+      of missed vaccinations, reduce the risk of vaccine-preventable diseases, and promote overall community health.
+      
+      Join us in our mission to safeguard the health of children through efficient vaccination management. 
+      Together, we can ensure a healthier and safer future for our little ones.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="/" role="button">HOME</a>
+    </p>
+  </div>
+
+  {% include "hospital/footer.html" %}
+</body>
+
+</html>

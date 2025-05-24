@@ -1,0 +1,91 @@
+{%load static%}
+<html>
+    <head>
+        <title>Patient List</title>
+        <style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 20px;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+                text-align: center;
+                color: #007cae;
+            }
+            .title {
+                font-size: 22px;
+                font-weight: 100;
+               /* text-align: right;*/
+               padding: 10px 20px 0px 20px;  
+            }
+            .title span {
+                color: #007cae;
+            }
+            .heading{
+                color:black;
+                font-size: 25px;             
+            }
+            .theadPadding{
+                margin:5px;
+            }
+            .rowSpace{
+                margin: 10px;
+                padding:15px;
+            }
+            .details {
+                padding: 10px 20px 0px 20px;
+                text-align: left !important;
+                /*margin-left: 40%;*/
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+        </style>
+    </head>
+    <body>
+        <div class='wrapper'>
+            <div class='header'>
+                <p class='title'>Patient List </p>
+            </div>
+        <div>
+        <div class='details'>
+			  <div class="panel panel-primary">				
+				<table class="table table-hover" id="dev-table">
+				  <thead class="theadPadding">
+					<tr class="rowSpace">
+					  <th  class="heading">Name</th>
+					  <th  class="heading">DOB</th>
+                      <th  class="heading"> Email</th>
+                      <th  class="heading"></th>
+                      <th  class="heading">Blood Group</th>
+                      <th  class="heading">Child Gender</th>
+                      <th  class="heading">Mobile</th>
+					  <th  class="heading">Address</th>
+					  <th  class="heading">Joined Date</th>
+					</tr>                    
+				  </thead>                  
+				  {% for p in patients %}
+				  <tr class="rowSpace">
+					<td> {{p.get_name}}</td>                   
+				    <td>{{p.date_of_birth}}</td>
+                    <td>{{p.user.email}}</td>
+                    <td></td>
+                    <td>{{p.bloodGroup}}</td>
+                    <td>{{p.child_gender}}</td>
+                    <td>{{p.mobile}}</td>
+					<td>{{p.address}}</td>
+                    <td>{{p.admitDate}}</td>					
+				  </tr>
+				  {% endfor %}
+				</table>
+			  </div>
+            <hr class='hrItem' />
+        </div>
+    </div>
+    </body>
+</html>

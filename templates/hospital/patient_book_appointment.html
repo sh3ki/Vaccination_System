@@ -1,0 +1,117 @@
+{% extends 'hospital/patient_base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<head>
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      padding: 5%;
+
+      border: 1px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background: #0062cc;
+      color: #fff;
+    }
+
+    .menu {
+      top: 50px;
+    }
+    input[type="date"]:not(.has-value):before{
+  color: #333;
+  content: attr(placeholder );
+}
+
+  </style>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+  <!-- Include the CSS file from an online source -->
+
+
+<!-- Include the JavaScript file from an online source -->
+
+
+
+</head>
+<br><br>
+{% if message %}
+<script>
+  var a = "{{message}}";
+  alert(a);
+</script>
+
+{% endif %}
+
+
+<!------ book appointment ---------->
+<form method="post">
+  {% csrf_token %}
+  <div class="container register-form">
+    <div class="form">
+      <div class="note">
+        <p>Book Appointment Details</p>
+      </div>
+      <div class="form-content">
+        <div class="row">
+          <div class="col-md-12">
+             
+            <div class="form-group">
+              <input placeholder="Appointment Date Format : " type="date" class="form-control" id="date" name="{{ appointmentForm.appointmentDate.html_name }}"  >              
+            </div>
+
+            <div class="form-group">
+              <input type="text" id="time" class="form-control timepicker" name="{{ appointmentForm.appointmentTime.html_name }}" placeholder="Appointment Time">
+            </div>  
+            <div class="form-group">
+              {% render_field appointmentForm.doctorId class="form-control" placeholder="doctor" %}
+            </div>
+            <div class="form-group">
+              {% render_field appointmentForm.description class="form-control" placeholder="Description" %}
+            </div>           
+          </div>
+        </div>
+        <button type="submit" class="btnSubmit">Book</button>
+      </div>
+    </div>
+  </div>
+</form>
+<script>
+  $(document).ready(function() {
+    $('.timepicker').timepicker({
+      showMeridian: false,
+      format: 'HH:mm',
+      defaultTime: false,
+      minuteStep: 1,
+    });
+  });
+</script>
+
+{% endblock content %}

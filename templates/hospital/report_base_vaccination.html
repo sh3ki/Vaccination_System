@@ -1,0 +1,83 @@
+{%load static%}
+<html>
+    <head>
+        <title>Doctor List</title>
+        <style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 20px;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+                text-align: center;
+                color: #007cae;
+            }
+            .title {
+                font-size: 22px;
+                font-weight: 100;
+               /* text-align: right;*/
+               padding: 10px 20px 0px 20px; 
+               text-align: center; 
+            }
+            .title span {
+                color: #007cae;
+            }
+            .details {
+                padding: 10px 20px 0px 20px;
+                text-align: left !important;
+                /*margin-left: 40%;*/
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+            .heading{
+                color:black;
+                font-size: 25px;             
+            }
+            .theadPadding{
+                margin:5px;
+            }
+            .rowSpace{
+                margin: 10px;
+                padding:15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='wrapper'>
+            <div class='header'>
+                <p class='title'>Doctor List </p>
+            </div>
+        <div>
+        <div class='details'>
+			  <div class="panel panel-primary">
+				
+				<table class="table table-hover" id="dev-table">
+				  <thead class="theadPadding">
+					<tr class="rowSpace">
+					  <th class="heading">Vaccine Name</th>
+                      <th class="heading">Vaccine Details</th>
+					  <th class="heading">Protect Against</th>
+                      <th class="heading">To be Given</th>                     
+					</tr>
+				  </thead>
+				  {% for v in vaccines %}
+				  <tr class="rowSpace">
+					<td> {{v.vaccine_names}}</td>
+				    <td>{{v.vaccine_details}}</td>
+                    <td>{{v.protect_against}}</td>
+                    <td>{{v.to_be_given}}</td>					
+				  </tr>
+				  {% endfor %}
+				</table>
+			  </div>
+            <hr class='hrItem' />
+        </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+{% extends 'hospital/admin_base.html' %}
+{% block content %}
+{%load static%}
+
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <style>
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+
+    .download {
+      text-align: center;
+      display: block;
+    }
+  </style>
+</head>
+
+<br><br><br>
+{% if appointments %}
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Appointment List</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+            <th>Infant Name</th>
+            <th>Handled Doctor Name</th>
+            <th>Appointment Date</th>
+            <th>Appointment Time</th>
+            <th>Description</th>     
+        </tr>
+      </thead>
+      {% for a in appointments %}
+      <tr class="rowSpace">
+        <td> {{a.patientName}}</td>
+        <td>{{a.doctorName}}</td>
+        <td>{{a.appointmentDate}}</td>
+        <td>{{a.appointmentTime}}</td>	
+        <td>{{a.description}}</td>				
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {%else%}
+  <br><br><br>
+  <h4 style="text-align: center;color: red;">No Appointment Found !!!</h4>
+  {% endif %}
+  <div class="download">
+    <a style="background:red; width:500px;" href="{% url 'download-appointment-pdf'  %}">Download</a>
+  </div>
+<br><br><br><br><br><br><br><br>
+{% endblock content %}

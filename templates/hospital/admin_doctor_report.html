@@ -1,0 +1,69 @@
+{% extends 'hospital/admin_base.html' %}
+{% block content %}
+{%load static%}
+
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <style>
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+
+    .download {
+      text-align: center;
+      display: block;
+    }
+  </style>
+</head>
+
+<br><br><br>
+{% if doctors %}
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Doctor List</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+            <th>Name</th>
+            <th>Profile Picture</th>
+            <th>User Name</th>           
+            <th>Address</th>
+            <th>department</th>                     
+            <th>Mobile</th>
+        </tr>
+      </thead>
+      {% for p in doctors %}
+      <tr>
+        <td> {{p.get_name}}</td>
+        <td> <img src="{% static p.profile_pic.url %}" alt="Profile Pic" height="40px" width="40px" /></td>
+        <td>{{p.user.username}}</td>
+        <td>{{p.address}}</td>
+        <td>{{p.department}}</td>
+        <td>{{p.mobile}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {%else%}
+  <br><br><br>
+  <h4 style="text-align: center;color: red;">No Doctor Found !!!</h4>
+  {% endif %}
+  <div class="download">
+    <a style="background:red; width:500px;" href="{% url 'download-doctor-pdf'  %}">Download</a>
+  </div>
+<br><br><br><br><br><br><br><br>
+{% endblock content %}

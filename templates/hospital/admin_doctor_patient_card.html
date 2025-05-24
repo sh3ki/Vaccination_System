@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: auto;
+      text-align: center;
+      font-family: arial;
+    }
+
+    .title {
+      color: grey;
+      font-size: 18px;
+    }
+
+    button {
+      border: none;
+      outline: 0;
+      display: inline-block;
+      padding: 8px;
+      color: white;
+      background-color: #000;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    button:hover,
+    a:hover {
+      opacity: 0.7;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      padding: 10px;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    a {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+
+
+  <div class="container">
+    <div class="row">
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{% static "images/patient.jpg" %}" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Patient</h5>
+          <p class="card-text">Patients can utilize the system to track their child's vaccination schedule, receive reminders,
+            and book appointments with doctors for vaccinations. </p>
+          <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+          <p class="lead">
+            <a class="btn btn-primary" href="/patientclick" role="button">Login / Register</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{% static "images/doctor.png" %}" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Doctor</h5>
+          <p class="card-text">  Doctors have access to the system to view and update vaccination records, schedule appointments,
+            and provide necessary medical interventions.</p>
+         
+          <p class="lead">
+            <a class="btn btn-primary" href="/doctorclick" role="button">Login / Register</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div> 
+ 
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{% static "images/admin.png" %}" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Admin</h5>
+          <p class="card-text">The administrator manages and oversees the child vaccination management system, ensuring smooth operation and user management.</p>
+          
+          <p class="lead">
+            <a class="btn btn-primary" href="/adminclick" role="button">Login</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  </div>
+
+  
+ 
+</body>
+
+</html>
