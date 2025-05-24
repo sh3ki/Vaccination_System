@@ -1,6 +1,4 @@
-# Child Vaccination Monitoring and Notification System Using Django
-Web Portal for Child Vaccination Monitoring and Notification System Using Django and Celery
-
+# Vaccination Monitoring and Notification System
 Use the above command to run the application:
    python manage.py makemigration
    python manage.py migrate
